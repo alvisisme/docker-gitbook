@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends install \
+  && DEBIAN_FRONTEND=noninteractive apt-get -y -q --no-install-recommends install \
     curl \
     calibre
 
