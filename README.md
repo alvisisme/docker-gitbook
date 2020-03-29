@@ -1,6 +1,6 @@
 # Docker Gitbook
 
-[![Build Status](https://img.shields.io/travis/com/alvisisme/docker-gitbook?style=flat-square)](https://travis-ci.com/alvisisme/docker-gitbook) ![https://cloud.docker.com/repository/docker/alvisisme/android-ndk](https://img.shields.io/docker/pulls/alvisisme/docker-gitbook.svg?style=flat-square)
+[![Build Status](https://img.shields.io/travis/com/alvisisme/docker-gitbook?style=flat-square)](https://travis-ci.com/alvisisme/docker-gitbook) ![https://cloud.docker.com/repository/docker/alvisisme/gitbook](https://img.shields.io/docker/pulls/alvisisme/gitbook.svg?style=flat-square)
 
 ## 目录
 
