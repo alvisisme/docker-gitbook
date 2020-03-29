@@ -1,14 +1,16 @@
 FROM ubuntu:18.04
 
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get -y -q --no-install-recommends install \
+    ca-certificates \
     wget \
     calibre
 
-RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
-  && bash -c "source ~/.bashrc" && nvm
-
-RUN nvm install v12.16.1
+ENV NVM_DIR /usr/local/nvm
+RUN mkdir -p $NVM_DIR && wget -O- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+RUN source $NVM_DIR/nvm.sh && nvm install v12.16.1 && nvm use v12.16.1
 
 RUN npm install -g gitbook-cli && gitbook fetch 3.2.3
 
