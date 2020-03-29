@@ -5,8 +5,8 @@ RUN apt-get update \
     wget \
     calibre
 
-RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-RUN /bin/bash -c "source ~/.bashrc"
+RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
+  && bash -c "source ~/.bashrc"
 
 RUN nvm install v12.16.1
 
