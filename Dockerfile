@@ -10,10 +10,14 @@ RUN apt-get update \
 
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 12.16.1
-RUN mkdir -p $NVM_DIR && wget -O- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-RUN source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+
+RUN mkdir -p $NVM_DIR && wget -O- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
+  && source $NVM_DIR/nvm.sh \
+  && nvm install $NODE_VERSION \
+  && nvm use $NODE_VERSION
+
+ENV NODE_PATH $NVM_DIR/versions/node/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 RUN npm install -g gitbook-cli && gitbook fetch 3.2.3
 
