@@ -1,0 +1,24 @@
+language: shell
+os: linux
+arch: amd64
+dist: bionic
+
+services: docker
+
+branches:
+  only:
+    - master
+
+env:
+  - GITBOOK_VERSION=3.2.3
+
+before_install:
+  - docker --version
+
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build --pull -t alvisisme/gitbook:$GITBOOK_VERSION .
+  - docker push alvisisme/gitbook:$GITBOOK_VERSION
+  - echo "$ALIYUN_PASSWORD" | docker login -u "$ALIYUN_USERNAME" --password-stdin registry.cn-hangzhou.aliyuncs.com
+  - docker tag alvisisme/gitbook:$GITBOOK_VERSION registry.cn-hangzhou.aliyuncs.com/alvisisme/gitbook:$GITBOOK_VERSION
+  - docker push registry.cn-hangzhou.aliyuncs.com/alvisisme/gitbook:$GITBOOK_VERSION
