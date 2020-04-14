@@ -24,8 +24,9 @@ docker pull alvisisme/gitbook:3.2.3
 ## 用法
 
 ```bash
-docker run -v $PWD/doc:/book alvisisme/gitbook:3.2.3 gitbook init /book
-docker run -v $PWD/doc:/book alvisisme/gitbook:3.2.3 gitbook build /book
+docker run -v $PWD/doc:/book alvisisme/gitbook:3.2.3 gitbook init
+docker run -v $PWD/doc:/book alvisisme/gitbook:3.2.3 gitbook build
+docker run -v $PWD/doc:/book alvisisme/gitbook:3.2.3 gitbook pdf
 ```
 
 ## 维护人员

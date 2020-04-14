@@ -1,0 +1,5 @@
+version: '2'
+services:
+  gitbook:
+    build: .
+    image: alvisisme/gitbook:3.2.3
