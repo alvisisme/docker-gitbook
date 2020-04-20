@@ -18,7 +18,7 @@ USER gitbook
 ENV NVM_DIR /home/gitbook/.nvm
 ENV NODE_VERSION 12.16.1
 
-RUN sudo mkdir -p $NVM_DIR && wget -O- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
+RUN mkdir -p $NVM_DIR && wget -O- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
   && source $NVM_DIR/nvm.sh \
   && nvm install $NODE_VERSION \
   && nvm use $NODE_VERSION
