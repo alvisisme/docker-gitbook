@@ -2,3 +2,4 @@ doc/_book
 doc/*.pdf
 doc/*.epub
 doc/*.mobi
+doc/node_modules
