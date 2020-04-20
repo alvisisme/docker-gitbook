@@ -6,17 +6,19 @@ RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get -y -q --no-install-recommends install \
     ca-certificates \
     wget \
-    calibre
+    calibre \
+    sudo
 
 RUN useradd --create-home --no-log-init --shell /bin/bash gitbook
 RUN adduser gitbook sudo
 RUN echo 'gitbook:gitbook' | chpasswd
+
 USER gitbook
 
-ENV NVM_DIR /usr/local/nvm
+ENV NVM_DIR /home/gitbook/.nvm
 ENV NODE_VERSION 12.16.1
 
-RUN mkdir -p $NVM_DIR && wget -O- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
+RUN sudo mkdir -p $NVM_DIR && wget -O- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
   && source $NVM_DIR/nvm.sh \
   && nvm install $NODE_VERSION \
   && nvm use $NODE_VERSION
