@@ -1,12 +1,15 @@
+image: 
+	docker build -t alvisisme/gitbook:3.2.3 . 
+
 build: 
-	docker run -it -v ${PWD}/doc:/book alvisisme/gitbook:3.2.3 gitbook build
+	docker run -it -v ${PWD}/doc:/home/gitbook/book alvisisme/gitbook:3.2.3 gitbook build
 
 pdf:
-	docker run -it -v ${PWD}/doc:/book alvisisme/gitbook:3.2.3 gitbook pdf
+	docker run -it -v ${PWD}/doc:/home/gitbook/book alvisisme/gitbook:3.2.3 gitbook pdf
 
 init:
-	docker run -it -v ${PWD}/doc:/book alvisisme/gitbook:3.2.3 gitbook init
+	docker run -it -v ${PWD}/doc:/home/gitbook/book alvisisme/gitbook:3.2.3 gitbook init
 
 serve:
-	docker run -it -v ${PWD}/doc:/book -p 4000:4000 alvisisme/gitbook:3.2.3 gitbook serve
+	docker run -it -v ${PWD}/doc:/home/gitbook/book -p 4000:4000 alvisisme/gitbook:3.2.3 gitbook serve
 

@@ -8,6 +8,11 @@ RUN apt-get update \
     wget \
     calibre
 
+RUN useradd --create-home --no-log-init --shell /bin/bash gitbook
+RUN adduser gitbook sudo
+RUN echo 'gitbook:gitbook' | chpasswd
+USER gitbook
+
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 12.16.1
 
@@ -21,5 +26,6 @@ ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 RUN npm install -g gitbook-cli && gitbook fetch 3.2.3
 
-WORKDIR /book
+WORKDIR /home/gitbook/book
+
 CMD ["gitbook", "help"]
