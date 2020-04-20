@@ -1,0 +1,4 @@
+doc/_book
+doc/*.pdf
+doc/*.epub
+doc/*.mobi
