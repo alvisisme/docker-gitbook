@@ -1,6 +1,10 @@
 image: 
 	docker build -t alvisisme/gitbook:3.2.3 . 
 
+install: 
+	docker run -it -v ${PWD}/doc:/home/gitbook/book alvisisme/gitbook:3.2.3 gitbook install
+
+
 build: 
 	docker run -it -v ${PWD}/doc:/home/gitbook/book alvisisme/gitbook:3.2.3 gitbook build
 
