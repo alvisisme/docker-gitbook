@@ -28,7 +28,7 @@ ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 RUN npm install -g gitbook-cli && gitbook fetch 3.2.3
 
-COPY fonts/*.ttc /usr/share/fonts
+COPY fonts/*.ttc /usr/share/fonts/
 
 WORKDIR /home/gitbook/book
 
